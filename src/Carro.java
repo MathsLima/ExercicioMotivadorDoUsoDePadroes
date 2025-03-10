@@ -23,6 +23,13 @@ public class Carro {
     // Retorna a quantidade efetivamente abastecida
     public int abastece(TipoCombustivel tipoCombustivel, int quantidade) {
         int capacidadeLivre = tanque.getCapacidade() - tanque.getCombustivelDisponivel();
+        if (modelo.equalsIgnoreCase("suvflex")) {
+            if (tipoCombustivel == TipoCombustivel.ALCOOL) {
+                setConsumo(6);
+            } else if (tipoCombustivel == TipoCombustivel.GASOLINA) {
+                setConsumo(8);
+            }
+        }
         if (capacidadeLivre < quantidade) {
             tanque.abastece(tipoCombustivel, capacidadeLivre);
             return capacidadeLivre;
@@ -53,6 +60,10 @@ public class Carro {
             return true;
         }
         return false;
+    }
+
+    public void setConsumo(int consumo) {
+        motor.setConsumo(consumo);
     }
 
     @Override
