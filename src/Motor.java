@@ -7,12 +7,18 @@ public class Motor {
     public Motor(TipoCombustivel tipoMotor, int consumo) {
         this.tipoMotor = tipoMotor;
         this.consumo = consumo;
+        this.quilometragem = 0;
     }
 
     public int getConsumo() {
         return this.consumo;
     }
 
+    public void atualizarConsumo() {
+        int reducao = (int) (quilometragem / 5000);
+        consumo = Math.max(10, 20 - reducao); 
+    }
+    
     public TipoCombustivel getTipoMotor(){
         return this.tipoMotor;
     }
