@@ -14,6 +14,10 @@ public class Motor {
         return this.consumo;
     }
 
+    public void setConsumo(int consumo) {
+        this.consumo = consumo;
+    }
+
     public void atualizarConsumo() {
         int reducao = (int) (quilometragem / 5000);
         consumo = Math.max(10, 20 - reducao); 
