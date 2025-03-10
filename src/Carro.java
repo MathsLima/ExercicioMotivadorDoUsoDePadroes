@@ -3,11 +3,13 @@ public class Carro {
     private String modelo;
     private Motor motor;
     private TanqueCombustivel tanque;
+    private boolean isEcono;
 
     public Carro(String modelo, TipoCombustivel tipoCombustivel, int consumoMotor, int capacidadeTanque) {
         this.modelo = modelo;
         motor = new Motor(tipoCombustivel, consumoMotor);
         tanque = new TanqueCombustivel(tipoCombustivel, capacidadeTanque);
+        this.isEcono = modelo.equals("Econo"); 
     }
 
     public String getModelo() {
@@ -45,6 +47,9 @@ public class Carro {
         if (verificaSePodeViajar(distancia) >= distancia) {
             motor.percorre(distancia);
             tanque.gasta(motor.combustivelNecessario(distancia));
+            if (isEcono) { 
+                motor.atualizarConsumo();
+            }
             return true;
         }
         return false;
