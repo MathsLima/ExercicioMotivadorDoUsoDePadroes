@@ -1,15 +1,15 @@
 public class Motor {
     private TipoCombustivel tipoCombustivel;
-    private double consumo; 
-    private double kmPercorridos;
+    private int consumo; 
+    private int quilometragem;
 
-    public Motor(TipoCombustivel tipoCombustivel, double consumoInicial) {
+    public Motor(TipoCombustivel tipoCombustivel, int consumoInicial) {
         this.tipoCombustivel = tipoCombustivel;
         this.consumo = consumoInicial;
-        this.kmPercorridos = 0;
+        this.quilometragem = 0;
     }
 
-    public double getConsumo() {
+    public int getConsumo() {
         return consumo;
     }
 
@@ -18,11 +18,11 @@ public class Motor {
     }
 
     public void percorre(int distancia) {
-        kmPercorridos += distancia;
+        quilometragem += distancia;
     }
 
     public void atualizarConsumo() {
-        int reducao = (int) (kmPercorridos / 5000);
+        int reducao = (int) (quilometragem / 5000);
         consumo = Math.max(10, 20 - reducao); 
     }
 
