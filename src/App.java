@@ -29,11 +29,23 @@ public class App {
         utilitario.viaja(350);
         System.out.println(utilitario);
 
+        System.out.println("-----------------------------------------------");
+
         Carro SUV = new Carro("SUV", TipoCombustivel.FLEX, 8, 55);
         System.out.println(SUV);
         System.out.println("\nAbastencendo carro SUV com gasolina");
         SUV.abastece(TipoCombustivel.FLEX, 55);
         SUV.viaja(400);
         System.out.println(SUV);
+
+        System.out.println("-----------------------------------------------");
+
+        Carro suvflex = new Carro("SUVFlex", TipoCombustivel.FLEX, 8, 65);
+        System.out.println(suvflex);
+        System.out.println("\nAbastencendo carro suvflex com gasolina");
+        suvflex.abastece(TipoCombustivel.GASOLINA, 65);
+        suvflex.viaja(500);
+        System.out.println(suvflex);
+
     }
 }
